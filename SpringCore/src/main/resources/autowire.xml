@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean class="auto.wire.Address" name="address1">
+        <property name="city" value="Hyderabad" />
+        <property name="state" value="Telangana" />
+    </bean>
+
+    <bean class="auto.wire.Address" name="address2">
+        <property name="city" value="Bengaluru" />
+        <property name="state" value="Karnataka" />
+    </bean>
+
+    <bean class="auto.wire.User" name="user" autowire="byName">
+        <property name="userName" value="maddy"/>
+<!--        <property name="address">-->
+<!--            <ref bean="address" />-->
+<!--        </property>-->
+    </bean>
+
+    <bean class="auto.wire.AutoWireAnnotation" name="autoWireAnnotationClass">
+    </bean>
+</beans>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="https://www.springframework.org/schema/context"
+       xmlns:p="https://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+    https://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--   bean creation using property tag  -->
+    <bean class="org.example.Student" name="student1">
+        <property name="studentId">
+            <value>111</value>
+        </property>
+        <property name="studentName">
+            <value>Suresh</value>
+        </property>
+        <property name="studentAddress">
+            <value>chicago</value>
+        </property>
+    </bean>
+
+<!--    bean creation using property attribute-->
+    <bean class="org.example.Student" name="student2">
+        <property name="studentId" value="222" />
+        <property name="studentName" value="ramesh" />
+        <property name="studentAddress" value="new york" />
+    </bean>
+
+<!--    bean creation using p:schema-->
+    <bean class="org.example.Student" name="student3" p:studentId="333" p:studentName="sailesh" p:studentAddress="montgomery"/>
+
+
+<!--    reference property bean-->
+    <bean class="org.example.Subjects" name="subject">
+        <property name="subjectId" value="5601" />
+        <property name="subjectName" value="Java" />
+    </bean>
+
+    <bean class="org.example.Student" name="studentWithRef">
+        <property name="studentId" value="444" />
+        <property name="studentName" value="rajesh" />
+        <property name="studentAddress" value="texas" />
+        <property name="studentSubject">
+            <ref bean="subject" />
+        </property>
+    </bean>
+</beans>
